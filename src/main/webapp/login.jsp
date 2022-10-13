@@ -4,15 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
-<t:fourthingsplus_template>
+<t:fourthingsplus>
     <jsp:attribute name="header">
              Login
     </jsp:attribute>
 
-
     <jsp:body>
-
-        <h3>You can log in here</h3>
 
         <form action="login" method="post">
             <label for="username">Username: </label>
@@ -23,4 +20,4 @@
         </form>
 
     </jsp:body>
-</t:fourthingsplus_template>
+</t:fourthingsplus>

@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
-<t:fourthingsplus_template>
+<t:fourthingsplus>
     <jsp:attribute name="header">
        About Four Things Plus
     </jsp:attribute>
@@ -11,8 +11,9 @@
     <jsp:body>
 
         <h3>about this website</h3>
+
         <p>Dette website er lavet på 2 semester, efteråret 2022</p>
 
     </jsp:body>
 
-</t:fourthingsplus_template>
+</t:fourthingsplus>

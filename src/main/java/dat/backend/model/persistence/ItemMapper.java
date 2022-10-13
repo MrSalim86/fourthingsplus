@@ -39,7 +39,7 @@ class ItemMapper {
         return itemList;
     }
 
-    public static void toggleDone(int item_id, ConnectionPool connectionPool)
+    public static void toggleItem(int item_id, ConnectionPool connectionPool)
     {
         String sql = "UPDATE item SET done = 1 - done WHERE item_id= ?";
 

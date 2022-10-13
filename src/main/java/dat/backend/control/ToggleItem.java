@@ -11,8 +11,9 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "Done", value = "/done")
-public class Done extends HttpServlet {
+@WebServlet(name = "ToggleItem", value = "/toggleitem")
+public class ToggleItem extends HttpServlet
+{
     private static ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
 
     @Override
@@ -25,12 +26,8 @@ public class Done extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         int item_id = Integer.parseInt(request.getParameter("item_id"));
-
-
         //TODO: flip done bit
-
-        ItemFacade.toggleDone(item_id,connectionPool);
-
+        ItemFacade.toggleItem(item_id,connectionPool);
         List<Item> itemList = ItemFacade.getItems(connectionPool);
         request.setAttribute("itemList", itemList);
         request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request,response);

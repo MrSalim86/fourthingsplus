@@ -3,17 +3,17 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 
-<t:fourthingsplus_template>
+<t:fourthingsplus>
     <jsp:attribute name="header">
          Welcome to the logged in area
     </jsp:attribute>
 
 
     <jsp:body>
-        <h3>Doing</h3>
+
 
         <form method="post">
-
+            <h3>Doing</h3>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -24,17 +24,21 @@
             <c:forEach var="item" items="${requestScope.itemList}">
                 <c:if test="${item.done == false}">
                     <tr>
-                        <td>${item.name} (${item.created})</td>
                         <td>
-                            <button formaction="done" name="item_id" value="${item.id}">Done</button>
+                                ${item.name} (${item.created})
+                        </td>
+                        <td>
+                            <button formaction="toggleitem" name="item_id" value="${item.id}">
+                                Done
+                            </button>
                         </td>
                     </tr>
                 </c:if>
             </c:forEach>
         </table>
-        <h3>Done - left in the dust </h3>
 
-        <table class="table table-striped">
+        <h3>Done - left in the dust </h3>
+            <table class="table table-striped">
             <thead>
             <tr>
                 <th>Item</th>
@@ -44,9 +48,13 @@
             <c:forEach var="item" items="${requestScope.itemList}">
                 <c:if test="${item.done == true}">
                     <tr>
-                        <td>${item.name} (${item.created})</td>
                         <td>
-                            <button formaction="done" name="item_id" value="${item.id}">Undo</button>
+                                ${item.name} (${item.created})
+                        </td>
+                        <td>
+                            <button formaction="toggleitem" name="item_id" value="${item.id}">
+                                Undo
+                            </button>
                         </td>
                     </tr>
                 </c:if>
@@ -56,4 +64,4 @@
         </form>
     </jsp:body>
 
-</t:fourthingsplus_template>
+</t:fourthingsplus>

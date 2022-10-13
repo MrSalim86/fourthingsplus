@@ -11,8 +11,8 @@ public class ItemFacade
         return ItemMapper.getItem(connectionPool);
     }
 
-    public static void toggleDone(int item_id, ConnectionPool connectionPool)
+    public static void toggleItem(int item_id, ConnectionPool connectionPool)
     {
-        ItemMapper.toggleDone(item_id,connectionPool);
+        ItemMapper.toggleItem(item_id,connectionPool);
     }
 }
