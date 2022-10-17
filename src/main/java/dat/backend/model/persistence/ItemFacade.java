@@ -27,4 +27,9 @@ public class ItemFacade
     {
         ItemMapper.updateItemName(item_id, name, connectionPool);
     }
+
+    public static int addItem(String name, String userName, dat.backend.model.persistence.ConnectionPool connectionPool)
+    {
+       return ItemMapper.addItem(name, userName, connectionPool);
+    }
 }

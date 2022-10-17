@@ -13,56 +13,65 @@
 
 
         <form method="post">
-            <h3>Doing</h3>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Item</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <c:forEach var="item" items="${requestScope.itemList}">
-                <c:if test="${item.done == false}">
-                    <tr>
-                        <td>
-                                ${item.name} (${item.created})
-                        </td>
-                        <td>
-                            <button formaction="toggleitem" name="item_id" value="${item.id}">
-                                Done
-                            </button>
-                            <button formaction="editform" name="item_id" value="${item.id}">
-                                Edit
-                            </button>
-                        </td>
-                    </tr>
-                </c:if>
-            </c:forEach>
-        </table>
 
-        <h3>Done - left in the dust </h3>
+            <div class="mb-4">
+                <input type="text" name="name"/>
+                <button formaction="additem">
+                    Add item
+                </button>
+            </div>
+
+
+            <h3>Doing</h3>
             <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Item</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <c:forEach var="item" items="${requestScope.itemList}">
-                <c:if test="${item.done == true}">
-                    <tr>
-                        <td>
-                                ${item.name} (${item.created})
-                        </td>
-                        <td>
-                            <button formaction="toggleitem" name="item_id" value="${item.id}">
-                                Undo
-                            </button>
-                        </td>
-                    </tr>
-                </c:if>
-            </c:forEach>
-        </table>
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <c:forEach var="item" items="${requestScope.itemList}">
+                    <c:if test="${item.done == false}">
+                        <tr>
+                            <td>
+                                    ${item.name} (${item.created})
+                            </td>
+                            <td>
+                                <button formaction="toggleitem" name="item_id" value="${item.id}">
+                                    Done
+                                </button>
+                                <button formaction="editform" name="item_id" value="${item.id}">
+                                    Edit
+                                </button>
+                            </td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
+            </table>
+
+            <h3>Done - left in the dust </h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <c:forEach var="item" items="${requestScope.itemList}">
+                    <c:if test="${item.done == true}">
+                        <tr>
+                            <td>
+                                    ${item.name} (${item.created})
+                            </td>
+                            <td>
+                                <button formaction="toggleitem" name="item_id" value="${item.id}">
+                                    Undo
+                                </button>
+                            </td>
+                        </tr>
+                    </c:if>
+                </c:forEach>
+            </table>
 
         </form>
     </jsp:body>

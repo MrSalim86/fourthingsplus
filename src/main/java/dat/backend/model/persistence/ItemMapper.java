@@ -112,4 +112,28 @@ class ItemMapper {
             e.printStackTrace();
         }
     }
+
+    public static int addItem(String name, String userName, ConnectionPool connectionPool)
+    {
+        String sql = "INSERT INTO item (name, userName) VALUE (?,?)";
+
+        try (Connection connection = connectionPool.getConnection())
+        {
+            try (PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS))
+            {
+                ps.setString(1, name);
+                ps.setString(2, userName);
+                ps.executeUpdate();
+                ResultSet rs = ps.getGeneratedKeys();
+                rs.next();
+                return rs.getInt(1);
+            }
+
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
