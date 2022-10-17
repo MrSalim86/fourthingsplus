@@ -31,6 +31,9 @@
                             <button formaction="toggleitem" name="item_id" value="${item.id}">
                                 Done
                             </button>
+                            <button formaction="editform" name="item_id" value="${item.id}">
+                                Edit
+                            </button>
                         </td>
                     </tr>
                 </c:if>
